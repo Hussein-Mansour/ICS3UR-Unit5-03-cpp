@@ -6,87 +6,58 @@
 
 
 #include <iostream>
-
-
-void percentageMark(int percentageInt) {
+std::string  percentageMark(std::string percentageStr) {
     // this function checks Which answer and prints it
 
     // process & output
-    if (percentageInt == 4) {
-        std::cout << "\nlevel " << percentageInt
-        << " has a middle percentage of 90%" << std::endl;
-        std::cout << "\nDone." << std::endl;
-    } else if (percentageInt == 3) {
-        std::cout << "\nlevel " << percentageInt
-        << " has a middle percentage of 74%" << std::endl;
-        std::cout << "\nDone." << std::endl;
-    } else if (percentageInt == 2) {
-        std::cout << "\nlevel " << percentageInt
-        << " has a middle percentage of 64%" << std::endl;
-        std::cout << "\nDone." << std::endl;
-    } else if (percentageInt == 1) {
-        std::cout << "\nlevel " << percentageInt
-        << " has a middle percentage of 54%" << std::endl;
-        std::cout << "\nDone." << std::endl;
+    if (percentageStr == "4") {
+        percentageStr = 90;
+    } else if (percentageStr == "3") {
+        percentageStr = 75;
+    } else if (percentageStr == "2") {
+        percentageStr = 64;
+    } else if (percentageStr == "1") {
+        percentageStr = 54;
+    } else if (percentageStr == "4+") {
+        percentageStr = 97;
+    } else if (percentageStr == "4-") {
+        percentageStr = 84;
+    } else if (percentageStr == "3+") {
+        percentageStr = 78;
+    } else if (percentageStr == "3-") {
+        percentageStr = 71;
+    } else if (percentageStr == "2+") {
+        percentageStr = 68;
+    } else if (percentageStr == "2-") {
+        percentageStr = 61;
+    } else if (percentageStr == "1+") {
+        percentageStr = 58;
+    } else if (percentageStr == "1-") {
+        percentageStr = 51;
+    } else if (percentageStr == "R") {
+        percentageStr = 49;
     }
-}
-
-
-void level(std::string levelFromUser) {
-    // this function checks Which answer and prints it
-
-    // process & output
-    if (levelFromUser == "4+") {
-        std::cout << "\nlevel " << levelFromUser
-        << " has a middle percentage of 97%" << std::endl;
-        std::cout << "\nDone." << std::endl;
-    } else if (levelFromUser == "4-") {
-        std::cout << "\nlevel " << levelFromUser
-        << " has a middle percentage of 84%" << std::endl;
-        std::cout << "\nDone." << std::endl;
-    } else if (levelFromUser == "3+") {
-        std::cout << "\nlevel " << levelFromUser
-        << " has a middle percentage of 78%" << std::endl;
-        std::cout << "\nDone." << std::endl;
-    } else if (levelFromUser == "3-") {
-        std::cout << "\nlevel " << levelFromUser
-        << " has a middle percentage of 71%" << std::endl;
-        std::cout << "\nDone." << std::endl;
-    } else if (levelFromUser == "2+") {
-        std::cout << "\nlevel " << levelFromUser
-        << " has a middle percentage of 68%" << std::endl;
-        std::cout << "\nDone." << std::endl;
-    } else if (levelFromUser == "2-") {
-        std::cout << "\nlevel " << levelFromUser
-        << " has a middle percentage of 61%" << std::endl;
-        std::cout << "\nDone." << std::endl;
-    } else if (levelFromUser == "1+") {
-        std::cout << "\nlevel " << levelFromUser
-        << " has a middle percentage of 58%" << std::endl;
-        std::cout << "\nDone." << std::endl;
-    } else if (levelFromUser == "1-") {
-        std::cout << "\nlevel " << levelFromUser
-        << " has a middle percentage of 51%" << std::endl;
-        std::cout << "\nDone." << std::endl;
-    } else if (levelFromUser == "R") {
-        std::cout << "\nlevel " << levelFromUser
-        << " has a middle percentage of 0-48%" << std::endl;
-        std::cout << "\nDone." << std::endl;
-    }
+    
+    return percentageStr;
 }
 
 
 int main() {
     // this function call other functions
+    std::string percentageStr;
     std::string levelFromUser;
-    int percentageInt;
+    std::string SomeVar;
     // input
     std::cout << "Enter the level you want converted to a percentage: ";
     std::cin >> levelFromUser;
     try {
-        percentageInt = std::stoi(levelFromUser);
+        percentageStr = levelFromUser;
         // call functions
-        percentageMark(percentageInt);
+        SomeVar = percentageMark(percentageStr);
+        // output
+        std::cout << "\nlevel " << levelFromUser
+        << " has a middle percentage of " << SomeVar << "%" << std::endl;
+        std::cout << "\nDone." << std::endl;
     } catch (std::invalid_argument) {
        std::cout << "\nInvalid Input!" << std::endl;
        std::cout << "\nDone." << std::endl;
